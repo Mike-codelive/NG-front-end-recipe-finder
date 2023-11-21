@@ -1,0 +1,11 @@
+<div class="popup-background">
+  <div class="popup-content">
+    <div class="popup-header">
+      <h3>Edit Profile</h3>
+      <button (click)="closePopup()">Close</button>
+    </div>
+    <div class="popup-body">
+      <app-profile-edit (profileUpdated)="closePopup()"></app-profile-edit>
+    </div>
+  </div>
+</div>

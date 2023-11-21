@@ -1,0 +1,26 @@
+<div *ngIf="showSavedRecipes">
+  <h1 class="justify-self-center text-center mtb-2">Saved Recipes</h1>
+  <div
+    class="container recipes"
+    id="myrecipes"
+    *ngIf="savedRecipes.length > 0; else noRecipes"
+  >
+    <div class="recipe grid" *ngFor="let recipe of savedRecipes">
+      <p><strong>Recipe Name:</strong></p>
+      <h3>{{ recipe.title }}</h3>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li *ngFor="let ingredient of recipe.ingredients">
+          {{ ingredient }}
+        </li>
+      </ul>
+      <p><strong>Instructions:</strong></p>
+      <p>{{ recipe.instructions }}</p>
+    </div>
+  </div>
+  <ng-template #noRecipes>
+    <div class="container mtb-2 grid justify-content-center">
+      <h1>No saved recipes found. Please register to save recipes</h1>
+    </div>
+  </ng-template>
+</div>

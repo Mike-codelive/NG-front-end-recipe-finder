@@ -1,0 +1,27 @@
+<section *ngIf="authService.getLoggedIn()" (click)="toggleMenu()">
+  <div class="floating-icon flex justify-content-center align-items-center">
+    <img src="../../assets/account-ico.svg" alt="account settings" />
+    <div
+      class="dropdown-menu"
+      [ngClass]="{ 'dropdown-menu': true, open: isMenuOpen }"
+      [@menuState]="isMenuOpen ? 'open' : 'closed'"
+    >
+      <ul>
+        <li>
+          <a (click)="toggleSavedRecipes()">My Recipes</a>
+        </li>
+        <li>
+          <a (click)="account()" [routerLink]="['/account-settings']"
+            >Account Settings</a
+          >
+        </li>
+        <li><a (click)="logout()" href="#">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- <app-popup
+  *ngIf="showProfileEditPopup"
+  (close)="showProfileEditPopup = false"
+></app-popup> -->

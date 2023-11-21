@@ -1,0 +1,9 @@
+<div class="recipe-instrucctions text-center">
+  <button
+    class="btn btn-recipe"
+    *ngIf="isLoggedIn && !isRecipeSaved"
+    (click)="saveRecipe()"
+  >
+    Save Recipe
+  </button>
+</div>

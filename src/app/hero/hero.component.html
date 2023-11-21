@@ -1,0 +1,40 @@
+<header class="hero">
+  <div class="hero-bg">
+    <div
+      class="hero-text container flex flex-column justify-content-center h-100"
+    >
+      <h1>
+        delicious <br />
+        food
+      </h1>
+      <h2>don't know what to eat? search by ingredients</h2>
+      <div class="hero-input flex align-items-center mt-2">
+        <form class="hero-form p-relative" (ngSubmit)="onSubmit()">
+          <input
+            class="hero-input-text"
+            [(ngModel)]="ingredients"
+            type="text"
+            id="inputField"
+            name="ingredients"
+            placeholder="example... beef"
+          />
+          <button class="btn" type="submit">Search</button>
+        </form>
+        <div class="spinner" *ngIf="isLoading; else content">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ng-template #content> </ng-template>
+      </div>
+    </div>
+  </div>
+  <app-profile-btn *ngIf="authService.getLoggedIn()"></app-profile-btn>
+</header>
+
+<app-saved-recipes></app-saved-recipes>
+
+<app-recipes [recipes]="recipes"></app-recipes>
+<app-about></app-about>
+<router-outlet></router-outlet>
+<app-body></app-body>

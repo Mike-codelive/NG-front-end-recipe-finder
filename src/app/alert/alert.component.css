@@ -1,0 +1,5 @@
+p {
+  margin-top: 2rem;
+  border-radius: 25px;
+  background-color: var(--recipe-card-bg);
+}

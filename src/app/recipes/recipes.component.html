@@ -1,0 +1,40 @@
+<div class="recipes container">
+  <div class="recipe grid" *ngFor="let recipe of recipes">
+    <img
+      class="recipe-image justify-self-center"
+      src="{{ recipe.image }}"
+      alt="{{ recipe.title }}"
+    />
+    <h2 class="recipe-title justify-self-center text-center">
+      {{ recipe.title }}
+    </h2>
+
+    <div class="flex gap-0 justify-content-center">
+      <ul class="recipe-ingredients recipe-match-ingredients">
+        <li *ngFor="let usedIngredient of getUsedIngredients(recipe)">
+          {{ usedIngredient.name }}
+        </li>
+      </ul>
+
+      <ul class="recipe-ingredients recipe-missed-ingredients">
+        <li *ngFor="let missedIngredient of getMissedIngredients(recipe)">
+          {{ missedIngredient.name }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="recipe-instrucctions text-center">
+      <button
+        class="btn btn-recipe"
+        (click)="fetchRecipeDetails(recipe.id)"
+        *ngIf="!recipeStates[recipe.id]?.isDetailsVisible"
+      >
+        Preparation
+      </button>
+    </div>
+    <div *ngIf="recipeStates[recipe.id]?.isDetailsVisible">
+      {{ recipeStates[recipe.id].instructions }}
+    </div>
+    <app-save-recipe-button [recipe]="recipe"></app-save-recipe-button>
+  </div>
+</div>

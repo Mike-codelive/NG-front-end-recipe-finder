@@ -1,0 +1,68 @@
+<section [@fadeInOut] *ngIf="showRegistrationForm">
+  <div class="form grid">
+    <div>
+      <h2 class="text-center mb-2">Register</h2>
+      <form
+        class="text-center"
+        (submit)="onSubmit()"
+        #registrationForm="ngForm"
+      >
+        <div>
+          <label for="username">Username</label>
+          <input
+            class="form-input"
+            type="text"
+            id="username"
+            name="username"
+            [(ngModel)]="userData.username"
+            required
+            minlength="3"
+            #usernameInput="ngModel"
+            placeholder="{{ getUsernamePlaceholder(usernameInput) }}"
+          />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input
+            class="form-input"
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="userData.email"
+            required
+            #useremailInput="ngModel"
+            placeholder="{{ getUseremailPlaceholder(useremailInput) }}"
+          />
+        </div>
+
+        <div>
+          <label for="password">Password</label>
+          <input
+            class="form-input"
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="userData.password"
+            required
+            #userpasswordInput="ngModel"
+            placeholder="{{ getUserpasswordPlaceholder(userpasswordInput) }}"
+          />
+        </div>
+
+        <button
+          class="btn btn-about mt-1"
+          type="submit"
+          [disabled]="!registrationForm.form.valid"
+        >
+          Sign Up
+        </button>
+      </form>
+      <app-alert
+        class="text-center alert-green"
+        [message]="alertMessage"
+        [type]="alertType"
+        *ngIf="displayAlert"
+      ></app-alert>
+    </div>
+  </div>
+</section>

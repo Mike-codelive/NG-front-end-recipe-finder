@@ -1,0 +1,35 @@
+<section>
+  <div class="about container grid">
+    <div class="about-text grid">
+      <p class="py-font-color">Our Story</p>
+      <h1>Cooking is the art of adjustment</h1>
+      <p class="py-font-color">
+        You can create an account and save your favorite recipes, so you'll
+        never forget or miss any ingredient or the way you cook your next
+        favorite dish. Happy cooking! 😁
+      </p>
+      <p class="py-font-color">
+        <strong>Thomas Eggsy</strong>- Master chef at all restaurant
+      </p>
+      <div class="about-btns grid">
+        <button class="btn btn-about" [routerLink]="['/register']">
+          Register
+        </button>
+        <button
+          class="btn btn-about"
+          [routerLink]="['/login']"
+          *ngIf="!isLoggedIn"
+        >
+          Log In
+        </button>
+      </div>
+    </div>
+    <div class="about-img grid p-relative">
+      <img
+        src="../../assets/about-bg-1.jpg"
+        alt="about this recipe finder app"
+      />
+      <div class="dots p-absolute"></div>
+    </div>
+  </div>
+</section>

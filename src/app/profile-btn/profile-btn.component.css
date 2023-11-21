@@ -1,0 +1,46 @@
+.floating-icon {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  cursor: pointer;
+  z-index: 1000;
+  background-color: var(--btn-bg);
+  border-radius: 100%;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.floating-icon img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu li:hover {
+  background-color: var(--light-gray);
+  cursor: pointer;
+}
